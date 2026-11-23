@@ -1,0 +1,63 @@
+{
+  "info": {
+    "name": "php-youtube",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost/youtube_crud/api/videos" }
+  ],
+  "item": [
+    {
+      "name": "read",
+      "request": { "method": "GET", "url": "{{baseUrl}}/read.php" }
+    },
+    {
+      "name": "readone",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/readone.php?id=1",
+          "host": ["{{baseUrl}}"],
+          "path": ["readone.php"],
+          "query": [{ "key": "id", "value": "1" }]
+        }
+      }
+    },
+    {
+      "name": "create",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"วิดีโอทดสอบ\",\n  \"channel\": \"ช่องของฉัน\",\n  \"youtube_url\": \"https://www.youtube.com/watch?v=jNQXAC9IVRw\",\n  \"description\": \"คำอธิบายวิดีโอ\"\n}"
+        },
+        "url": "{{baseUrl}}/create.php"
+      }
+    },
+    {
+      "name": "update",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 1,\n  \"title\": \"ชื่อใหม่ที่แก้ไขแล้ว\"\n}"
+        },
+        "url": "{{baseUrl}}/update.php"
+      }
+    },
+    {
+      "name": "delete",
+      "request": {
+        "method": "DELETE",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 1\n}"
+        },
+        "url": "{{baseUrl}}/delete.php"
+      }
+    }
+  ]
+}
