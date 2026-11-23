@@ -10,6 +10,9 @@ $dbname     = "youtube_db";
 // ถ้า XAMPP ใช้พอร์ตอื่น เช่น 8888 ให้เปลี่ยนเป็น http://localhost:8888/...
 $apiUrl = "http://localhost/youtube_crud/api/videos";
 
+// ที่อยู่ YouTube Data API v3 (ใช้ในหน้า search.php)
+$youtubeApiUrl = "https://www.googleapis.com/youtube/v3/search";
+
 $dbh = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8mb4", $username, $password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
